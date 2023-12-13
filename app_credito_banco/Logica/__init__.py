@@ -1,0 +1,2 @@
+def modeloSNN():
+    return None

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign</title>
+
+</head>
+<body>
+<form action="/predecir/" method="post">
+    {% csrf_token %}
+    <p>PLAZO DE MESES CRÉDITO:
+    <input type="number" name="PLAZOMESESCREDITO"></p>
+    <p>MONTO DE CRÉDITO:
+    <input type="number" name="MONTOCREDITO" step=".01"></p>
+    <p>TASA DE PAGO:
+    <input type="number" name="TASAPAGO" step=".01"></p>
+    <p>EDAD:
+    <input type="number" name="EDAD"></p>
+    <p>CANTIDAD DE PERSONAS A MANTENER:
+    <input type="number" name="CANTIDADPERSONASAMANTENER"></p>
+    <p>EMPLEO:
+    <input type="radio" name="EMPLEO" value="A171"> A171
+    <input type="radio" name="EMPLEO" value="A172"> A172
+    <input type="radio" name="EMPLEO" value="A173"> A173
+    <input type="radio" name="EMPLEO" value="A174"> A174
+    </p>
+    <p><input type="submit" value="PREDECIR"></p>
+</form>
+</body>
+</html>
