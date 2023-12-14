@@ -1,3 +1,9 @@
+import os
+
+
+
+# Luego, utiliza `ruta_archivo` en lugar de './Recursos/pipePreprocesadores1.2.pickle'
+
 from django.urls import reverse
 import pandas as pd
 from sklearn.pipeline import Pipeline
@@ -6,38 +12,52 @@ from keras import backend as K
 
 import pickle
 import keras
-class modeloSNN():
+
+
+class ModeloSNN:
     """Clase modelo Preprocesamiento y SNN"""
+
     # Función para cargar preprocesador
     def cargarPipeline(self, nombreArchivo):
-        with open(nombreArchivo + '.pickle', 'rb') as handle:
+
+        with open(nombreArchivo, 'rb') as handle:
             pipeline = pickle.load(handle)
         return pipeline
 
     # Función para cargar red neuronal
     def cargarNN(self, nombreArchivo):
-        model = keras.models.load_model(nombreArchivo + '.h5')
+        model = keras.models.load_model(nombreArchivo)
         print("Red Neuronal Cargada desde Archivo")
         return model
 
     # Función para integrar el preprocesador y la red neuronal en un Pipeline
     def cargarModelo(self):
         # Se carga el Pipeline de Preprocesamiento
-        nombreArchivoPreprocesador = 'Recursos/pipePreprocesadores'
-        pipe = self.cargarPipeline(self, nombreArchivoPreprocesador)
-        print('Pipeline de Preprocesamiento Cargado')
-        cantidadPasos = len(pipe.steps)
-        print("Cantidad de pasos: ", cantidadPasos)
-        print(pipe.steps)
-        # Se carga la Red Neuronal
-        modeloOptimizado = self.cargarNN(self, 'Recursos/modeloRedNeuronalOptimizada')
-        # Se integra la Red Neuronal al final del Pipeline
-        pipe.steps.append(['modelNN', modeloOptimizado])
-        cantidadPasos = len(pipe.steps)
-        print("Cantidad de pasos: ", cantidadPasos)
-        print(pipe.steps)
-        print('Red Neuronal integrada al Pipeline')
-        return pipe
+        try:
+            # Obtener la ruta absoluta del directorio actual
+            directorio_actual = os.path.abspath(os.path.dirname(__file__))
+            # Construir la ruta completa al archivo
+            nombreArchivoPreprocesador = os.path.join(directorio_actual, 'Recursos', 'pipePreprocesadores1.2.pickle')
+            # nombreArchivoPreprocesador = './Recursos/pipePreprocesadores1.2'
+            pipe = self.cargarPipeline(nombreArchivoPreprocesador)
+            print('Pipeline de Preprocesamiento Cargado')
+            cantidadPasos = len(pipe.steps)
+            print("Cantidad de pasos: ", cantidadPasos)
+            print(pipe.steps)
+            # Se carga la Red Neuronal
+            modeloOptimizado = self.cargarNN(os.path.join(directorio_actual, 'Recursos', 'modeloRedNeuronalOptimizada.h5'))
+            # Se integra la Red Neuronal al final del Pipeline
+            pipe.steps.append(['modelNN', modeloOptimizado])
+            cantidadPasos = len(pipe.steps)
+            print("Cantidad de pasos: ", cantidadPasos)
+            print(pipe.steps)
+            print('Red Neuronal integrada al Pipeline')
+            return pipe
+        except FileNotFoundError as e:
+            print(f"Error archivo no encontrado: {e.filename}")
+        except Exception as e:
+            print(f"Error inesperado: {e}")
+        return None
 
     # La siguiente función permite predecir si se aprueba o no un crédito a un nuevo cliente.
     # En la función se define el valor por defecto de las variables, se crea el dataframe con los nuevos valores y
@@ -50,7 +70,8 @@ class modeloSNN():
                              ESTADOCIVILYSEXO='A93', GARANTE='A101', TIEMPORESIDENCIAACTUAL=4, ACTIVOS='A121', EDAD=67,
                              VIVIENDA='A152', CANTIDADCREDITOSEXISTENTES=2, EMPLEO='A173', CANTIDADPERSONASAMANTENER=2,
                              TRABAJADOREXTRANJERO='A201'):
-        pipe = self.cargarModelo(self)
+        print("EMPIEZA A PREDECIR EL MODELO")
+        pipe = self.cargarModelo()
         cnames = ['ESTADOCUENTACORRIENTE', 'PLAZOMESESCREDITO', 'HISTORIALCREDITO', 'PROPOSITOCREDITO', 'MONTOCREDITO',
                   'SALDOCUENTAAHORROS', 'TIEMPOACTUALEMPLEO', 'TASAPAGO', 'ESTADOCIVILYSEXO', 'GARANTE',
                   'TIEMPORESIDENCIAACTUAL',
