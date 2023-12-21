@@ -96,7 +96,7 @@ ROOT_URLCONF = 'MLServices.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['app_credito_banco/Template'],
+        'DIRS': ['app_credito_banco/Template', 'home/Template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
