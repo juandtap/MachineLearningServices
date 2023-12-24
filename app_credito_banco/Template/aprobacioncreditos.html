@@ -2,29 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Sign</title>
+    <!-- Enlace a Bootstrap CSS (asegúrate de tener conexión a Internet) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fff; /* Fondo blanco */
+        }
 
+         .header {
+            background-color: #007bff; /* Color azul */
+            padding: 10px;
+            text-align: center;
+            color: #fff; /* Color blanco para el texto */
+        }
+
+        .card {
+            margin: auto;
+            margin-top: 50px; /* Espaciado superior para centrar */
+            max-width: 400px; /* Ancho máximo de la tarjeta */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+
+        .card-title {
+            color: #007bff; /* Color azul */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Color azul para el botón */
+            border-color: #007bff; /* Color del borde del botón */
+        }
+    </style>
 </head>
 <body>
-<form action="/predecir/" method="post">
-    {% csrf_token %}
-    <p>PLAZO DE MESES CRÉDITO:
-    <input type="number" name="PLAZOMESESCREDITO"></p>
-    <p>MONTO DE CRÉDITO:
-    <input type="number" name="MONTOCREDITO" step=".01"></p>
-    <p>TASA DE PAGO:
-    <input type="number" name="TASAPAGO" step=".01"></p>
-    <p>EDAD:
-    <input type="number" name="EDAD"></p>
-    <p>CANTIDAD DE PERSONAS A MANTENER:
-    <input type="number" name="CANTIDADPERSONASAMANTENER"></p>
-    <p>EMPLEO:
-    <input type="radio" name="EMPLEO" value="A171"> DESEMPLEADO
-    <input type="radio" name="EMPLEO" value="A172"> JUBILADO
-    <input type="radio" name="EMPLEO" value="A173"> EMPLEADO
-    <input type="radio" name="EMPLEO" value="A174"> AUTONOMO
-    </p>
-    <p><input type="submit" value="PREDECIR"></p>
-</form>
+     <div class="header">
+        <h2>Servicio: Predicción Crédito Bancario</h2>
+    </div>
+    <div class="card">
+        <form action="/predecir/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="PLAZOMESESCREDITO">PLAZO DE MESES CRÉDITO:</label>
+                <input type="number" class="form-control" id="PLAZOMESESCREDITO" name="PLAZOMESESCREDITO">
+            </div>
+            <div class="form-group">
+                <label for="MONTOCREDITO">MONTO DE CRÉDITO:</label>
+                <input type="number" class="form-control" id="MONTOCREDITO" name="MONTOCREDITO" step=".01">
+            </div>
+            <div class="form-group">
+                <label for="TASAPAGO">TASA DE PAGO:</label>
+                <input type="number" class="form-control" id="TASAPAGO" name="TASAPAGO" step=".01">
+            </div>
+            <div class="form-group">
+                <label for="EDAD">EDAD:</label>
+                <input type="number" class="form-control" id="EDAD" name="EDAD">
+            </div>
+            <div class="form-group">
+                <label for="CANTIDADPERSONASAMANTENER">CANTIDAD DE PERSONAS A MANTENER:</label>
+                <input type="number" class="form-control" id="CANTIDADPERSONASAMANTENER" name="CANTIDADPERSONASAMANTENER">
+            </div>
+            <div class="form-group">
+                <label >EMPLEO:</label>
+                <div>
+                    <input type="radio" id="DESEMPLEADO" name="EMPLEO" value="A171">
+                    <label for="DESEMPLEADO">DESEMPLEADO</label>
+                </div>
+                <div>
+                    <input type="radio" id="JUBILADO" name="EMPLEO" value="A172">
+                    <label for="JUBILADO">JUBILADO</label>
+                </div>
+                <div>
+                    <input type="radio" id="EMPLEADO" name="EMPLEO" value="A173">
+                    <label for="EMPLEADO">EMPLEADO</label>
+                </div>
+                <div>
+                    <input type="radio" id="AUTONOMO" name="EMPLEO" value="A174">
+                    <label for="AUTONOMO">AUTONOMO</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">PREDECIR</button>
+        </form>
+    </div>
+
+    <!-- Enlace a Bootstrap JS y jQuery (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -31,12 +31,12 @@
         transition: transform 0.3s; /* Añade una transición de 0.3 segundos para el efecto suave */
       }
       .card:hover {
-        transform: scale(1.1); /* Aumenta el tamaño al pasar el puntero */
+        transform: scale(1.05); /* Aumenta el tamaño al pasar el puntero */
       }
       
       .card-img-top {
         object-fit: cover; /* Controla el ajuste de la imagen */
-        height: 80%; /* Establece la altura de la imagen al 100% de la tarjeta */
+        height: 75%; /* Establece la altura de la imagen al 100% de la tarjeta */
       }
 
       .card-title {
@@ -46,6 +46,7 @@
       .card-text {
         flex-grow: 1; /* Hace que el texto ocupe el espacio restante */
         font-size: 1rem; /* Ajusta el tamaño del texto */
+        height: auto;
       }
       
   </style>
@@ -78,12 +79,12 @@
     <div class="row">
       <!-- Card 1 -->
       <div class="col-md-6">
-        <div class="card">
+        <div class="card card-link" data-href="{% url 'nuevasolicitud' %}">
           <img src="https://lalupadigital.com/wp-content/uploads/2021/04/LaLupaDigital-Alejandro-Enrique-Esis-Urdaneta-De-las-ventajas-y-desventajas-de-los-prestamos-bancarios-FOTO.jpg" class="card-img-top" alt="Imagen 1">
           <div class="card-body">
             <h5 class="card-title">Predicción Credito Bancario</h5>
-            <p class="card-text">Descripción de la Card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="#" class="btn btn-primary">Ir a Servicio</a>
+            <p class="card-text">Servicio para predecir si un cliente en un banco es un cliente adecuado o no, adecuado para concederle un crédito. </p>
+<!--            <a href="{% url 'nuevasolicitud' %}" class="btn btn-primary">Ir a Servicio</a>-->
           </div>
         </div>
       </div>
@@ -94,8 +95,8 @@
           <img src="https://www.shutterstock.com/image-photo/interest-ratefinance-loan-increaseinvestment-planningbusiness-600nw-1721183434.jpg" class="card-img-top" alt="Imagen 2">
           <div class="card-body">
             <h5 class="card-title">Predicción Suscripción a deposito a plazo fijo</h5>
-            <p class="card-text">Descripción de la Card 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="#" class="btn btn-primary">Ir a Servicio</a>
+            <p class="card-text">Servicio para predecir si un cliente se suscribe a un deposito de plazo fijo.</p>
+
           </div>
         </div>
       </div>
@@ -107,4 +108,17 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-cN8r8w11VjbehXRjSNbKGxkmeqL4r6xNlf0LyOA1ZfjPSSkyiKSXOnfUDON8bUpJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2Ck1Cg5B9QG3Owx6D8F5i0n2J9I0b4ks" crossorigin="anonymous"></script>
 </body>
+
+<!-- Agrega esto al final del archivo antes de </body> -->
+<script>
+    $(document).ready(function () {
+        $(".card-link").click(function () {
+            var href = $(this).data("href");
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
+</script>
+
 </html>

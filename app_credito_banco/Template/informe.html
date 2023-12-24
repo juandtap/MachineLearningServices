@@ -2,10 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Informe de solicitud de crédito</title>
+    <!-- Enlace a Bootstrap CSS (asegúrate de tener conexión a Internet) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fff; /* Fondo blanco */
+        }
+
+        .card {
+            margin: auto;
+            margin-top: 50px; /* Espaciado superior para centrar */
+            max-width: 400px; /* Ancho máximo de la tarjeta */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        }
+
+        .card-header {
+            background-color: #007bff; /* Color azul */
+            color: #fff; /* Color blanco para el texto */
+            text-align: center;
+        }
+
+        .card-title {
+            color: #fff; /* Color azul para el título de la tarjeta */
+        }
+    </style>
 </head>
 <body>
-{% csrf_token %}
-El crédito ha sido: {{e}}
+        <div class="card-header">
+            <h5 class="card-title">Resultado Predicción Crédito Bancario</h5>
+        </div>
+    <div class="card">
+
+        <div class="card-body">
+            <form>
+                {% csrf_token %}
+                El crédito ha sido: {{ e }}
+            </form>
+        </div>
+    </div>
+
+
 </body>
 </html>
