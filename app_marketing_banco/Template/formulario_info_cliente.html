@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Formulario de Datos</title>
+    <!-- Enlace a Bootstrap CSS (asegúrate de tener conexión a Internet) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Color de fondo gris claro */
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 60%; /* Ancho máximo de la tarjeta */
+            margin: auto;
+        }
+
+         .header {
+            background-color: #007bff; /* Color azul */
+
+            text-align: center;
+            color: #fff; /* Color blanco para el texto */
+        }
+
+        .card-header {
+            background-color: #007bff; /* Color azul para el encabezado de la tarjeta */
+            color: #fff; /* Color blanco para el texto del encabezado */
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+  <div class="header">
+        <h2>Servicio: Predicción Crédito Bancario</h2>
+    </div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Formulario de Datos del Cliente</h5>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="edad" class="col-sm-2 col-form-label">Edad:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="edad" name="edad" min="18" max="100" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="trabajo" class="col-sm-2 col-form-label">Trabajo:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="trabajo" name="trabajo" required>
+                         <option value="administracion">Administración</option>
+                         <option value="autonomo">Autónomo</option>
+                         <option value="Gerente">Gerente</option>
+                         <option value="Empresario">Empresario</option>
+                         <option value="Obrero">Obrero</option>
+                         <option value="Servicios">Servicios</option>
+                         <option value="amadecasa">Ama de casa</option>
+                         <option value="Retirado">Retirado</option>
+                         <option value="Tecnico">Técnico</option>
+                         <option value="Desempleado">Desempleado</option>
+                        <option value="Estudiante">Estudiante</option>
+                         <option value="Otros">Otros</option>
+
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="estadocivil" class="col-sm-2 col-form-label">Estado Civil:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="estadocivil" name="estadocivil" required>
+                         <option value="Soltero">Soltero</option>
+                         <option value="Casado">Casado</option>
+                         <option value="Divorciado">Divorciado</option>
+
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="educacion" class="col-sm-2 col-form-label">Educacion:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="educacion" name="educacion" required>
+                         <option value="Primaria">Primaria</option>
+                         <option value="Secundario">Secundaria</option>
+                         <option value="Tercer nivel">Tercer nivel</option>
+                        <option value="otros"> Otros</option>
+
+
+                    </select>
+                </div>
+            </div>
+
+             <div class="form-group row">
+                <label for="saldo" class="col-sm-2 col-form-label">Saldo:</label>
+                <div class="col-sm-10">
+
+                    <input type="number" class="form-control" id="saldo" name="saldo" min="-10000" max="99999999999" required>
+                </div>
+                </div>
+
+
+             <div class="form-group row">
+                <label for="hipoteca" id="hipoteca" class="col-sm-2 col-form-label">Hipoteca:</label>
+                <div class="col-sm-10">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaSi" value="si">
+                        <label class="form-check-label" for="hipotecaSi"  style="font-weight: normal;">Si</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaNo" value="no">
+                        <label class="form-check-label" for="hipotecaNo"  style="font-weight: normal;">No</label>
+                    </div>
+                </div>
+            </div>
+
+             <div class="form-group row">
+                <label for="prestamo" id="prestamo" class="col-sm-2 col-form-label">Prestamo:</label>
+                <div class="col-sm-10">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hipoteca" id="prestamoSi" value="si">
+                        <label class="form-check-label" for="prestamoSi"  style="font-weight: normal;">Si</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="hipoteca" id="prestamoNo" value="no">
+                        <label class="form-check-label" for="prestamoNo"  style="font-weight: normal;">No</label>
+                    </div>
+                </div>
+            </div>
+
+             <div class="form-group row">
+                <label for="contacto" class="col-sm-2 col-form-label">Tipo Contacto:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="contacto" name="contacto" required>
+                         <option value="telefono">telefono</option>
+                         <option value="celular">celular</option>
+
+                        <option value="otros"> Otros</option>
+
+
+                    </select>
+                </div>
+            </div>
+
+
+              <div class="form-group row">
+                <label for="duracion" class="col-sm-2 col-form-label">Duracion llamada (segundos):</label>
+                <div class="col-sm-10">
+
+                    <input type="number" class="form-control" id="duracion" name="saldo" min="0" max="99999" required>
+                </div>
+                </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </form>
+    </div>
+</div>
+
+<!--&lt;!&ndash; Enlace a Bootstrap JS y jQuery (opcional) &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+
+</body>
+</html>
