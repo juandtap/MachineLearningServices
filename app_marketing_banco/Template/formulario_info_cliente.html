@@ -7,28 +7,44 @@
     <!-- Enlace a Bootstrap CSS (asegúrate de tener conexión a Internet) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+          header {
+            background-color: #007bff; /* Color azul */
+            
+            text-align: center;
+            color: #fff; /* Color blanco para el texto */
+            padding: 20px 0;
+        }
         body {
             background-color: #f8f9fa; /* Color de fondo gris claro */
-            padding: 20px;
+            /* padding: 20px; */
         }
+
+      
+
 
         .card {
             max-width: 60%; /* Ancho máximo de la tarjeta */
             margin: auto;
+          
+           
         }
 
-         .header {
-            background-color: #007bff; /* Color azul */
-
-            text-align: center;
-            color: #fff; /* Color blanco para el texto */
+        .card-body{
+         
+            padding-left: 15%; 
+           
+        
         }
 
+       
         .card-header {
-            background-color: #007bff; /* Color azul para el encabezado de la tarjeta */
+            background-color: #343a40; 
             color: #fff; /* Color blanco para el texto del encabezado */
             text-align: center;
+           
         }
+
+        
 
         label {
             font-weight: bold;
@@ -36,9 +52,12 @@
     </style>
 </head>
 <body>
-  <div class="header">
-        <h2>Servicio: Predicción Crédito Bancario</h2>
-    </div>
+  
+        <header>
+            <h2>Servicio: Predicción de Suscripción a deposito a plazo fijo</h2>
+        </header>
+        
+ <br>
 
 <div class="card">
     <div class="card-header">
@@ -47,15 +66,16 @@
     <div class="card-body">
         <form>
             <div class="form-group row">
-                <label for="edad" class="col-sm-2 col-form-label">Edad:</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" id="edad" name="edad" min="18" max="100" required>
+                <label for="edad" class="col-sm-4 col-form-label">Edad:</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" id="edad" name="edad" min="18" max="100" required oninput="validarInputNumerico(this,18,100,'Porfavor ingrese valores entre 18 y 100')">
+                    <div class="text-danger"> <span class="error-message"></span></div>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="trabajo" class="col-sm-2 col-form-label">Trabajo:</label>
-                <div class="col-sm-10">
+                <label for="trabajo" class="col-sm-4 col-form-label">Trabajo:</label>
+                <div class="col-sm-6">
                     <select class="form-control" id="trabajo" name="trabajo" required>
                          <option value="administracion">Administración</option>
                          <option value="autonomo">Autónomo</option>
@@ -68,7 +88,7 @@
                          <option value="Tecnico">Técnico</option>
                          <option value="Desempleado">Desempleado</option>
                         <option value="Estudiante">Estudiante</option>
-                         <option value="Otros">Otros</option>
+                         <option value="unkonwn">Desconocido</option>
 
 
                     </select>
@@ -76,8 +96,8 @@
             </div>
 
             <div class="form-group row">
-                <label for="estadocivil" class="col-sm-2 col-form-label">Estado Civil:</label>
-                <div class="col-sm-10">
+                <label for="estadocivil" class="col-sm-4 col-form-label">Estado Civil:</label>
+                <div class="col-sm-6">
                     <select class="form-control" id="estadocivil" name="estadocivil" required>
                          <option value="Soltero">Soltero</option>
                          <option value="Casado">Casado</option>
@@ -89,13 +109,13 @@
             </div>
 
             <div class="form-group row">
-                <label for="educacion" class="col-sm-2 col-form-label">Educacion:</label>
-                <div class="col-sm-10">
+                <label for="educacion" class="col-sm-4 col-form-label">Educacion:</label>
+                <div class="col-sm-6">
                     <select class="form-control" id="educacion" name="educacion" required>
                          <option value="Primaria">Primaria</option>
                          <option value="Secundario">Secundaria</option>
                          <option value="Tercer nivel">Tercer nivel</option>
-                        <option value="otros"> Otros</option>
+                        <option value="unknown"> Desconocido</option>
 
 
                     </select>
@@ -103,17 +123,18 @@
             </div>
 
              <div class="form-group row">
-                <label for="saldo" class="col-sm-2 col-form-label">Saldo:</label>
-                <div class="col-sm-10">
+                <label for="saldo" class="col-sm-4 col-form-label">Saldo:</label>
+                <div class="col-sm-6">
 
-                    <input type="number" class="form-control" id="saldo" name="saldo" min="-10000" max="99999999999" required>
+                    <input type="number" class="form-control" id="saldo" name="saldo" min="-10000" max="99999999999" required oninput="validarInputNumerico(this,-10000,999999,'Porfavor ingrese valores entre -10000 y 999999')">
+                    <div class="text-danger"> <span class="error-message"></span></div>
                 </div>
                 </div>
 
 
              <div class="form-group row">
-                <label for="hipoteca" id="hipoteca" class="col-sm-2 col-form-label">Hipoteca:</label>
-                <div class="col-sm-10">
+                <label for="hipoteca" id="hipoteca" class="col-sm-4 col-form-label">Hipoteca:</label>
+                <div class="col-sm-6">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaSi" value="si">
                         <label class="form-check-label" for="hipotecaSi"  style="font-weight: normal;">Si</label>
@@ -126,27 +147,27 @@
             </div>
 
              <div class="form-group row">
-                <label for="prestamo" id="prestamo" class="col-sm-2 col-form-label">Prestamo:</label>
-                <div class="col-sm-10">
+                <label for="prestamo" id="prestamo" class="col-sm-4 col-form-label">Prestamo:</label>
+                <div class="col-sm-6">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hipoteca" id="prestamoSi" value="si">
+                        <input class="form-check-input" type="radio" name="prestamo" id="prestamoSi" value="si">
                         <label class="form-check-label" for="prestamoSi"  style="font-weight: normal;">Si</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hipoteca" id="prestamoNo" value="no">
+                        <input class="form-check-input" type="radio" name="prestamo" id="prestamoNo" value="no">
                         <label class="form-check-label" for="prestamoNo"  style="font-weight: normal;">No</label>
                     </div>
                 </div>
             </div>
 
              <div class="form-group row">
-                <label for="contacto" class="col-sm-2 col-form-label">Tipo Contacto:</label>
-                <div class="col-sm-10">
+                <label for="contacto" class="col-sm-4 col-form-label">Tipo Contacto:</label>
+                <div class="col-sm-6">
                     <select class="form-control" id="contacto" name="contacto" required>
                          <option value="telefono">telefono</option>
                          <option value="celular">celular</option>
 
-                        <option value="otros"> Otros</option>
+                        <option value="unknown"> Desconocido</option>
 
 
                     </select>
@@ -155,23 +176,33 @@
 
 
               <div class="form-group row">
-                <label for="duracion" class="col-sm-2 col-form-label">Duracion llamada (segundos):</label>
-                <div class="col-sm-10">
+                <label for="duracion" class="col-sm-4 col-form-label">Duracion llamada (segundos):</label>
+                <div class="col-sm-6">
 
-                    <input type="number" class="form-control" id="duracion" name="saldo" min="0" max="99999" required>
+                    <input type="number" class="form-control" id="duracion" name="saldo" min="0" max="9999" required oninput="validarInputNumerico(this,0,9999,'Porfavor ingrese valores entre 0 y 9999')">
+                    <div class="text-danger"> <span class="error-message"></span></div>
                 </div>
                 </div>
+
+
+             
+                <div class="form-group row">
+                    <label for="campaign" class="col-sm-4 col-form-label">Numero de contactos realizados:</label>
+                    <div class="col-sm-6">
+    
+                        <input type="number" class="form-control" id="campaign" name="campaign" min="0" max="99999" required oninput="validarInputNumerico(this,0,9999,'Porfavor ingrese valores entre 0 y 9999')">
+                        <div class="text-danger"> <span class="error-message"></span></div>
+                       
+                    </div>
+                    </div>   
 
             <div class="form-group row">
-                <div class="col-sm-10 offset-sm-2">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                <div class="col-sm-5 offset-sm-0">
+                    <button type="submit" class="btn btn-primary">Predecir</button>
                 </div>
             </div>
 
-
-
-
-
+        
 
 
         </form>
@@ -179,9 +210,22 @@
 </div>
 
 <!--&lt;!&ndash; Enlace a Bootstrap JS y jQuery (opcional) &ndash;&gt;-->
-<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>-->
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function validarInputNumerico(input, min, max, mensajeError) {
+    var valor = input.value;
+    var errorMensaje = input.parentElement.querySelector('.error-message');
 
+    if (isNaN(valor) || valor % 1 !== 0 || valor < min || valor > max) {
+        errorMensaje.textContent = mensajeError;
+        input.setCustomValidity('Invalid');
+    } else {
+        errorMensaje.textContent = '';
+        input.setCustomValidity('');
+    }
+}
+    </script>
 </body>
 </html>
