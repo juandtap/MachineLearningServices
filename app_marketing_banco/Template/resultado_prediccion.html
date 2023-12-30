@@ -25,6 +25,12 @@
       background-color: #343a40; /* Gris oscuro o negro de Bootstrap */
       color: #ffffff; /* Texto blanco */
     }
+     nav {
+      background-color: #343a40;
+    }
+    nav a {
+      color: #fff;
+    }
   </style>
 </head>
 
@@ -34,7 +40,21 @@
   <div class="header">
     <h2>Servicio: Predicción de Suscripción a Depósito a Plazo Fijo</h2>
   </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Inicio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
 
+          <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <!-- Card con resultados de predicción -->
   <div class="container mt-4">
     <div class="card">
@@ -44,34 +64,36 @@
       <div class="card-body">
       
         <p>El cliente <b>NO</b> se suscribe al Servicio de Depósito a plazo fijo</p>
-        <p>Certeza de 99%</p>
 
-
-        <h4>Resultados de Predicción</h4>
 
         <!-- Tabla para mostrar los resultados -->
-        <table >
-            <tr>
-
-                <th>Prediccion</th>
-                <th>Resultado</th>
-                <th>Certeza</th>
-
-            </tr>
-
-
-            <tr>
-
-                {% for resultado in resultados %}
-                    <td>{{ resultado }}</td>
-                {% endfor %}
-            </tr>
+               <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Predicción</th>
+                    <th>Resultado</th>
+                    <th>Certeza</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for resultado in datos %}
+                        <td>{{ resultado }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
         </table>
 
-        <button class="btn btn-primary">Imprimir resultados</button>
+        <button class="btn btn-light">Imprimir resultados</button>
 
       </div>
     </div>
+
+      <div>
+            <br>
+            <button class="btn btn-primary" onclick="window.location.href = '/appmarketing/nuevaprediccion'">Realizar nueva predicción</button>
+      </div>
+
   </div>
 
   <!-- Agrega el enlace al archivo de scripts de Bootstrap y jQuery (opcional) -->

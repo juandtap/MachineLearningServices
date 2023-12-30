@@ -19,7 +19,12 @@
             /* padding: 20px; */
         }
 
-      
+         nav {
+      background-color: #343a40;
+    }
+    nav a {
+      color: #fff;
+    }
 
 
         .card {
@@ -56,6 +61,20 @@
         <header>
             <h2>Servicio: Predicción de Suscripción a Depósito a Plazo Fijo</h2>
         </header>
+              <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                  <a class="navbar-brand" href="/">Inicio</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+
+                      <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
         
  <br>
 
@@ -63,8 +82,12 @@
     <div class="card-header">
         <h5 class="card-title">Formulario de Datos del Cliente</h5>
     </div>
+
+
+
+
     <div class="card-body">
-        <form method="post" action="{% url 'nueva_prediccion' %}">
+        <form method="post" action="{% url 'resultados_prediccion' %}">
             {% csrf_token %}
             <div class="form-group row">
                 <label for="edad" class="col-sm-4 col-form-label">Edad:</label>
@@ -137,7 +160,7 @@
                 <label for="hipoteca" id="hipoteca" class="col-sm-4 col-form-label">Hipoteca:</label>
                 <div class="col-sm-6">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaSi" value="1">
+                        <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaSi" value="1" required>
                         <label class="form-check-label" for="hipotecaSi"  style="font-weight: normal;">Si</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -151,7 +174,7 @@
                 <label for="prestamo" id="prestamo" class="col-sm-4 col-form-label">Prestamo:</label>
                 <div class="col-sm-6">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="prestamo" id="prestamoSi" value="1">
+                        <input class="form-check-input" type="radio" name="prestamo" id="prestamoSi" value="1" required>
                         <label class="form-check-label" for="prestamoSi"  style="font-weight: normal;">Si</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -180,7 +203,7 @@
                 <label for="duracion" class="col-sm-4 col-form-label">Duracion llamada (segundos):</label>
                 <div class="col-sm-6">
 
-                    <input type="number" class="form-control" id="duracion" name="saldo" min="0" max="9999" required oninput="validarInputNumerico(this,0,9999,'Porfavor ingrese valores entre 0 y 9999')">
+                    <input type="number" class="form-control" id="duracion" name="duracion" min="0" max="9999" required oninput="validarInputNumerico(this,0,9999,'Porfavor ingrese valores entre 0 y 9999')">
                     <div class="text-danger"> <span class="error-message"></span></div>
                 </div>
                 </div>
