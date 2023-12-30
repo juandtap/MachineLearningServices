@@ -46,6 +46,28 @@
         <p>El cliente <b>NO</b> se suscribe al Servicio de Depósito a plazo fijo</p>
         <p>Certeza de 99%</p>
 
+
+        <h4>Resultados de Predicción</h4>
+
+        <!-- Tabla para mostrar los resultados -->
+        <table >
+            <tr>
+
+                <th>Prediccion</th>
+                <th>Resultado</th>
+                <th>Certeza</th>
+
+            </tr>
+
+
+            <tr>
+
+                {% for resultado in resultados %}
+                    <td>{{ resultado }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+
         <button class="btn btn-primary">Imprimir resultados</button>
 
       </div>

@@ -17,7 +17,7 @@ class Clasificacion():
     def predecir(request):
         try:
             # Formato de datos de entrada
-            print("ENtro al request")
+            print("Entro al request")
             PLAZOMESESCREDITO = int(request.POST.get('PLAZOMESESCREDITO'))
             MONTOCREDITO = float(request.POST.get('MONTOCREDITO'))
             TASAPAGO = float(request.POST.get('TASAPAGO'))
