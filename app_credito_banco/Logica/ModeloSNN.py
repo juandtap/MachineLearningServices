@@ -1,7 +1,5 @@
 import os
 
-
-
 # Luego, utiliza `ruta_archivo` en lugar de './Recursos/pipePreprocesadores1.2.pickle'
 
 from django.urls import reverse
