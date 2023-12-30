@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_credito_banco.apps.AppCreditoBancoConfig',#Se incluye la app
+    'app_marketing_banco',
     'rest_framework',
     'corsheaders',
     'drf_yasg',
@@ -96,7 +97,7 @@ ROOT_URLCONF = 'MLServices.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['app_credito_banco/Template', 'home/Template'],
+        'DIRS': ['app_credito_banco/Template', 'home/Template', 'app_marketing_banco/Template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

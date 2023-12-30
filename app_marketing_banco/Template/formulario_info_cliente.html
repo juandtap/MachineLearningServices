@@ -64,7 +64,8 @@
         <h5 class="card-title">Formulario de Datos del Cliente</h5>
     </div>
     <div class="card-body">
-        <form>
+        <form method="post" action="{% url 'nueva_prediccion' %}">
+            {% csrf_token %}
             <div class="form-group row">
                 <label for="edad" class="col-sm-4 col-form-label">Edad:</label>
                 <div class="col-sm-6">
@@ -77,17 +78,17 @@
                 <label for="trabajo" class="col-sm-4 col-form-label">Trabajo:</label>
                 <div class="col-sm-6">
                     <select class="form-control" id="trabajo" name="trabajo" required>
-                         <option value="administracion">Administración</option>
-                         <option value="autonomo">Autónomo</option>
-                         <option value="Gerente">Gerente</option>
-                         <option value="Empresario">Empresario</option>
-                         <option value="Obrero">Obrero</option>
-                         <option value="Servicios">Servicios</option>
-                         <option value="amadecasa">Ama de casa</option>
-                         <option value="Retirado">Retirado</option>
-                         <option value="Tecnico">Técnico</option>
-                         <option value="Desempleado">Desempleado</option>
-                        <option value="Estudiante">Estudiante</option>
+                         <option value="management">Administración</option>
+                         <option value="self-employed">Autónomo</option>
+                         <option value="admin.">Gerente</option>
+                         <option value="entrepreneur">Emprendedor</option>
+                         <option value="blue-collar">Obrero</option>
+                         <option value="services">Servicios</option>
+                         <option value="housemaid">Ama de casa</option>
+                         <option value="retired">Retirado</option>
+                         <option value="technician">Técnico</option>
+                         <option value="unemployed">Desempleado</option>
+                        <option value="student">Estudiante</option>
                          <option value="unkonwn">Desconocido</option>
 
 
@@ -99,9 +100,9 @@
                 <label for="estadocivil" class="col-sm-4 col-form-label">Estado Civil:</label>
                 <div class="col-sm-6">
                     <select class="form-control" id="estadocivil" name="estadocivil" required>
-                         <option value="Soltero">Soltero</option>
-                         <option value="Casado">Casado</option>
-                         <option value="Divorciado">Divorciado</option>
+                         <option value="single">Soltero</option>
+                         <option value="married">Casado</option>
+                         <option value="divorced">Divorciado</option>
 
 
                     </select>
@@ -112,9 +113,9 @@
                 <label for="educacion" class="col-sm-4 col-form-label">Educacion:</label>
                 <div class="col-sm-6">
                     <select class="form-control" id="educacion" name="educacion" required>
-                         <option value="Primaria">Primaria</option>
-                         <option value="Secundario">Secundaria</option>
-                         <option value="Tercer nivel">Tercer nivel</option>
+                         <option value="primary">Primaria</option>
+                         <option value="secondary">Secundaria</option>
+                         <option value="tertiary">Tercer nivel</option>
                         <option value="unknown"> Desconocido</option>
 
 
@@ -136,11 +137,11 @@
                 <label for="hipoteca" id="hipoteca" class="col-sm-4 col-form-label">Hipoteca:</label>
                 <div class="col-sm-6">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaSi" value="si">
+                        <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaSi" value="1">
                         <label class="form-check-label" for="hipotecaSi"  style="font-weight: normal;">Si</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaNo" value="no">
+                        <input class="form-check-input" type="radio" name="hipoteca" id="hipotecaNo" value="0">
                         <label class="form-check-label" for="hipotecaNo"  style="font-weight: normal;">No</label>
                     </div>
                 </div>
@@ -150,11 +151,11 @@
                 <label for="prestamo" id="prestamo" class="col-sm-4 col-form-label">Prestamo:</label>
                 <div class="col-sm-6">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="prestamo" id="prestamoSi" value="si">
+                        <input class="form-check-input" type="radio" name="prestamo" id="prestamoSi" value="1">
                         <label class="form-check-label" for="prestamoSi"  style="font-weight: normal;">Si</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="prestamo" id="prestamoNo" value="no">
+                        <input class="form-check-input" type="radio" name="prestamo" id="prestamoNo" value="0">
                         <label class="form-check-label" for="prestamoNo"  style="font-weight: normal;">No</label>
                     </div>
                 </div>
@@ -164,8 +165,8 @@
                 <label for="contacto" class="col-sm-4 col-form-label">Tipo Contacto:</label>
                 <div class="col-sm-6">
                     <select class="form-control" id="contacto" name="contacto" required>
-                         <option value="telefono">telefono</option>
-                         <option value="celular">celular</option>
+                         <option value="telephone">telefono</option>
+                         <option value="cellular">celular</option>
 
                         <option value="unknown"> Desconocido</option>
 
@@ -201,12 +202,9 @@
                         <label for="modelo" class="col-sm-4 col-form-label">Modelo de predicción:</label>
                         <div class="col-sm-6">
                             <select class="form-control" id="modelo" name="modelo" required>
-                                 <option value="renneuronal">Red Neuronal</option>
-                                 <option value="naivebayes">Naive Bayes</option>
-        
-                               
-        
-        
+                                 <option value="red_neuronal">Red Neuronal</option>
+                                 <option value="naive_bayes">Naive Bayes</option>
+
                             </select>
                         </div>
                     </div>

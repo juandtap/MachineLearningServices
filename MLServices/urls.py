@@ -44,6 +44,7 @@ urlpatterns = [
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
+    path('appmarketing/', include('app_marketing_banco.urls')),
     path('nuevasolicitud/', views.Clasificacion.determinarAprobacion, name='nuevasolicitud'),
     # re_path(r'^nuevasolicitud/$',views.Clasificacion.determinarAprobacion),
     re_path(r'^predecir/',views.Clasificacion.predecir),

@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def nueva_prediccion(request):
+    return render(request, 'formulario_info_cliente.html')
