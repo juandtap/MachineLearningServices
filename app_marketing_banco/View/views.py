@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
+from app_marketing_banco.Logica.modelo_prediccion import ModeloPrediccion
 
 
 def nueva_prediccion(request):
@@ -35,7 +36,9 @@ def predecir(request):
 
         print("MODELO SELECCIONADO: ", modelo)
 
-        resultados = ['prediccion', 'etiqueta', 'certeza']
+        resultados = ModeloPrediccion.predecir_cliente(modelo=modelo, age=age, job=job, marital=marital,
+                                                       education=education, balance=balance, housing=housing,
+                                                       loan=loan, contact=contact, duration=duration, campaign=campaign)
 
     except Exception as e:
         print("Ocurrio un error: ", e)

@@ -149,6 +149,7 @@ class ModeloPrediccion:
         pipe = ModeloPrediccion.cargar_modelo_prediccion(modelo)
         print(f"Modelo de prediccion {modelo} cargado")
         y_pred = pipe.predict(x_new_dataframe)
+        y_pred = y_pred.flatten()[0]
         print(f"Prediccion realizada {modelo}")
         prediccion, marca, certeza = ModeloPrediccion.obtener_resultados_certezas(y_pred)
         dataframe_final = pd.DataFrame({'Predicción': [prediccion], 'Resultado': [marca], 'Certeza': [certeza]})
