@@ -12,3 +12,6 @@ Se tiene dos aplicaciones:
 * Prediccion Creditos bancarios (```app_credito_banco```)
 * Prediccion aceptacion productos de marketing (```app_marketing_banco```)
 
+## Revisar enlaces
+
+https://www.codigojs.com/django-framework/generar-un-pdf-con-django/

@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from app_marketing_banco.Logica.modelo_prediccion import ModeloPrediccion
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
 
 
 def nueva_prediccion(request):
@@ -44,4 +46,33 @@ def predecir(request):
         print("Ocurrio un error: ", e)
         resultados = ['ERROR', 'ERROR', 'ERROR']
 
+    # no sirve eliminar
+    if request.GET.get('format') == 'pdf':
+     
+        
+        
+        print("empieza a generar PDF")
+        try:
+        # Generar PDF
+            response = HttpResponse(content_type='application/pdf')
+            response['Content-Disposition'] = 'filename="resultados_prediccion.pdf"'
+            pdf = canvas.Canvas(response)
+
+            # Agregar contenido al PDF
+            pdf.drawString(100, 800, 'Resultados Predicción')
+            pdf.drawString(100, 780, f'El cliente {resultados[1]} el Servicio de Depósito a plazo fijo')
+
+            # Dibujar la tabla en el PDF
+            y_position = 750
+            for resultado in resultados:
+                pdf.drawString(100, y_position, str(resultado))
+                y_position -= 20
+
+            pdf.save()
+            return response
+            
+        except Exception as ex:
+            print("ERROR IMPRMIENDO PDF: ",ex)
+    
+    
     return render(request, "resultado_prediccion.html", {'datos': resultados})
