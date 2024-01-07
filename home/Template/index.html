@@ -11,6 +11,9 @@
   <style>
     body {
       background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     header {
       background-color: #007bff;
@@ -48,6 +51,10 @@
         flex-grow: 1; /* Hace que el texto ocupe el espacio restante */
         font-size: 1rem; /* Ajusta el tamaño del texto */
         height: auto;
+      }
+
+      .container{
+        flex: 1;
       }
       
   </style>
@@ -103,6 +110,12 @@
       </div>
     </div>
   </div>
+
+  <footer class="bg-primary text-white text-center py-3 mt-5">
+            <div class="container">
+                <p class="mb-0">&copy; 2024 MLServices. Desarrollado por <a href="https://github.com/juandtap" class="text-white" target="_blank">juandtap</a></p>
+            </div>
+  </footer>
 
   <!-- Enlaces a Bootstrap JS y Popper.js -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

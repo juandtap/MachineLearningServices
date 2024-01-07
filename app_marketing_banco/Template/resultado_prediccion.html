@@ -12,6 +12,9 @@
 
     body {
       background-color: #f8f9fa; /* Color de fondo gris claro */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .header {
@@ -31,6 +34,10 @@
     nav a {
       color: #fff;
     }
+
+      .container{
+        flex: 1;
+      }
   </style>
 </head>
 
@@ -73,6 +80,7 @@
                     <th>Predicción</th>
                     <th>Resultado</th>
                     <th>Certeza</th>
+                    <th>Modelo Predicción</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,7 +92,7 @@
             </tbody>
         </table>
 
-        <a href="{% url 'resultados_prediccion' %}?format=pdf" class="btn btn-light" target="_blank">Imprimir resultados PDF</a>
+        <a href="{% url 'export-pdf' %}" class="btn btn-light" target="_blank">Imprimir resultados en PDF</a>
 
 
       </div>
@@ -96,6 +104,12 @@
       </div>
 
   </div>
+
+   <footer class="bg-primary text-white text-center py-3 mt-5">
+            <div class="container">
+                <p class="mb-0">&copy; 2024 MLServices. Desarrollado por <a href="https://github.com/juandtap" class="text-white" target="_blank">juandtap</a></p>
+            </div>
+  </footer>
 
   <!-- Agrega el enlace al archivo de scripts de Bootstrap y jQuery (opcional) -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
