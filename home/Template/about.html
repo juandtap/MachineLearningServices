@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Servicios de Machine Learning</title>
+  <title>Acerca de MLServices</title>
   <!-- Enlace a Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2Ck1Cg5B9QG3Owx6D8F5i0n2J9I0b4ks" crossorigin="anonymous">-->
@@ -31,13 +31,10 @@
     .card {
         margin: 15px;
         height: 100%;
-        transition: transform 0.3s; /* Añade una transición de 0.3 segundos para el efecto suave */
+        padding: 10px;
         overflow: hidden;
       }
-      .card:hover {
-        transform: scale(1.05); /* Aumenta el tamaño al pasar el puntero */
-      }
-      
+     
       .card-img-top {
         object-fit: cover; /* Controla el ajuste de la imagen */
         height: 70%; /* Establece la altura de la imagen al 100% de la tarjeta */
@@ -76,7 +73,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
-          <li class="nav-item"><a class="nav-link" href="/about">Acerca de</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
         </ul>
       </div>
     </div>
@@ -84,31 +81,66 @@
 
   <!-- Contenido -->
   <div class="container">
-    <div class="row">
-      <!-- Card 1 -->
-      <div class="col-md-6">
-        <div class="card card-link" data-href="{% url 'nuevasolicitud' %}">
-          <img src="https://lalupadigital.com/wp-content/uploads/2021/04/LaLupaDigital-Alejandro-Enrique-Esis-Urdaneta-De-las-ventajas-y-desventajas-de-los-prestamos-bancarios-FOTO.jpg" class="card-img-top" alt="Imagen 1">
-          <div class="card-body">
-            <h5 class="card-title">Predicción Credito Bancario</h5>
-            <p class="card-text">Servicio para predecir si un cliente en un banco es un cliente adecuado o no, adecuado para concederle un crédito. </p>
-<!--            <a href="{% url 'nuevasolicitud' %}" class="btn btn-primary">Ir a Servicio</a>-->
-          </div>
-        </div>
-      </div>
+    <div class="container mt-4">
+        <div class="card">
+        
+            <h3>Servicios de Machine Learning: MLServices</h3>
+            <P>
+                Esta aplicación web ofrece servicios de predicción a servicios bancarios, como; Suscripción a Depósitos a plazo fijo y Si un cliente es bueno o malo para un Crédito
+                
+                <br>
+                <br>
+                Los resultados de la predicción devuelven valores entre 0 y 1, los valores mayores a 0.5 se toman como positivos y los menores como negativos, de acuerdo a que tan cercanos sean de 0 y 1 se calcula una certeza.
 
-      <!-- Card 2 -->
-      <div class="col-md-6">
-        <div class="card card-link" data-href="{% url 'nueva_prediccion' %}">
-          <img src="https://www.shutterstock.com/image-photo/interest-ratefinance-loan-increaseinvestment-planningbusiness-600nw-1721183434.jpg" class="card-img-top" alt="Imagen 2">
-          <div class="card-body">
-            <h5 class="card-title">Predicción de Suscripción a deposito a plazo fijo</h5>
-            <p class="card-text">Servicio para predecir si un cliente se suscribe a un deposito de plazo fijo.</p>
 
-          </div>
+                <br>
+                <br>
+                
+
+
+
+                Los servicios de predicción utilizan dos modelos; RED NEURONAL y NAIVE BAYES . En las fases de desarrollo de estos modelos, se llegó a la conclusión de que el modelo de RED NEURONAL
+                es más preciso que le modelo de NAIVE BAYES, a pesar de que este último siempre muestre una certeza del 100%.
+
+                <br>
+                <br>
+
+                La razón por la que el modelo de NAIVE BAYES muestre una certeza del 100% es porque sus resultados son siempre los valores de 0 o 1, a diferencia de la RED NEURONAL que devuelve valores en el rango de 0 y 1.
+Como se mencionó anteriormente la RED NEURONAL es más precisa que NAIVE BAYES, las medidas de evaluación de los modelos se  presentan a continuación:
+
+
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Accuracy</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1-Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Red Neuronal</td>
+                            <td>0.9723</td>
+                            <td>0.9260</td>
+                            <td>0.8378</td>
+                            <td>0.8797</td>
+                        </tr>
+                        <tr>
+                            <td>Naive Bayes</td>
+                            <td>0.8365</td>
+                            <td>0.3603</td>
+                            <td>0.4574</td>
+                            <td>0.4031</td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+            </P>
+        
         </div>
-      </div>
-    </div>
+        </div>
   </div>
 
   <footer class="bg-primary text-white text-center py-3 mt-5">
