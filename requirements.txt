@@ -61,3 +61,4 @@ uritemplate==4.1.1
 urllib3==2.1.0
 Werkzeug==3.0.1
 wrapt==1.14.1
+weasyprint~=60.2
