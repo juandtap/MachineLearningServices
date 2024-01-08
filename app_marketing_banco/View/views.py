@@ -55,6 +55,6 @@ def predecir(request):
 
     except Exception as e:
         print("Ocurrio un error: ", e)
-        resultados = ['ERROR', 'ERROR', 'ERROR']
+        resultados = ['ERROR', 'ERROR', 'ERROR', 'ERROR']
 
     return render(request, "resultado_prediccion.html", {'datos': resultados})
